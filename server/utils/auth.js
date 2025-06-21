@@ -25,9 +25,9 @@ module.exports = {
       req.user = data;
     } catch {
       console.log('Invalid token');
-      return res.status(400).json({ message: 'invalid token!' });
+      // FIX: Remove res usage, just return req
+      return req;
     }
-
     // send to next endpoint
     return req;
   },
